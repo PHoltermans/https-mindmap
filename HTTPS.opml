@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0"><head>
+<title>HTTPS</title>
+</head><body>
+	<outline text="Certificates">
+		<outline text="Weaknesses">
+			<outline text="DNS" _note="Use DNSSec to prevent attacks for processes where domain is used for validation" />
+			<outline text="SHA1" _note="SHA1 signed certificates are no longer trusted" />
+		</outline>
+		<outline text="Certificate Authority">
+			<outline text="Root CA" />
+			<outline text="CAA record" />
+		</outline>
+		<outline text="Types">
+			<outline text="By Validation">
+				<outline text="Domain Validation" />
+				<outline text="Organization Validation" />
+				<outline text="Extended Validation" />
+				<outline text="Self-signed" />
+			</outline>
+			<outline text="By domain">
+				<outline text="Multi domain">
+					<outline text="Subject Alternative Name (SAN)">
+						<outline text="Information Disclosure" _note="Don&apos;t put non-public domains as a SAN from a public domain. (p.e. : admin.domain.com)" />
+					</outline>
+				</outline>
+				<outline text="Wildcard">
+					<outline text="Weakest link" _note="Don&apos;t share private key and restrict usage to same-purpose domains as much as possible" />
+				</outline>
+				<outline text="Single domain" />
+			</outline>
+		</outline>
+		<outline text="Chain" />
+	</outline>
+	<outline text="Related Concepts">
+		<outline text="Symmeyric vs Asymmetric encryption">
+			<outline text="Asymmetric encryption">
+				<outline text="CONs">
+					<outline text="Resource intensive" />
+					<outline text="Slow" />
+				</outline>
+				<outline text="PROs">
+					<outline text="Integrity" />
+					<outline text="Authenticity" />
+				</outline>
+			</outline>
+			<outline text="Symmetric encryption">
+				<outline text="CONs">
+					<outline text="Cannot authenticate" />
+					<outline text="Same (shared) key" />
+				</outline>
+				<outline text="PROs">
+					<outline text="Speed" />
+				</outline>
+			</outline>
+		</outline>
+		<outline text="PKP" _note="Public Key Pinning">
+			<outline text="Public Key Pinning" />
+		</outline>
+		<outline text="HSTS">
+			<outline text="HTTP Strict Transport Security" />
+		</outline>
+		<outline text="SNI" _note="Server Name Indication">
+			<outline text="ESNI">
+				<outline text="Encrypted Server Name Indication" />
+			</outline>
+			<outline text="Server Name Indication" />
+		</outline>
+	</outline>
+	<outline text="SSL Handshake">
+		<outline text="Ciphers" _note="Algorithm to encode or decode data" />
+	</outline>
+	<outline text="Resources">
+		<outline text="Test TLS configuration">
+			<outline text="SSLlabs" _note="https://www.ssllabs.com/ssltest/" />
+			<outline text="Testssl" _note="https://github.com/drwetter/testssl.sh" />
+		</outline>
+		<outline text="Handshake Deep Dive" _note="https://tls.ulfheim.net" />
+		<outline text="OpenSSL">
+			<outline text="Inspect CSRs &amp; certificates" />
+			<outline text="Generate CSR / private key" />
+		</outline>
+	</outline>
+	<outline text="Prevents MITM" _note="Man In The Middle">
+		<outline text="Communicating with the intended person" />
+		<outline text="No one can change your message" />
+		<outline text="No one can read your msg" />
+	</outline>
+	<outline text="SSL / TLS">
+		<outline text="TLS">
+			<outline text="TLSv1.3">
+				<outline text="Still experimental" />
+			</outline>
+			<outline text="TLSv1.2">
+				<outline text="Best option" />
+			</outline>
+			<outline text="TLSv1.1" />
+			<outline text="Transport Layer Security">
+				<outline text="Record Layer" _note="Gets data from application, then encrypts it, fragments it and sends it to the network transport layer" />
+				<outline text="Handshake Layer" _note="Is performed only once to establish secure connection and determines the ciphersuite that is used" />
+			</outline>
+			<outline text="Used in/for">
+				<outline text="FTPS" />
+				<outline text="Secure Email" />
+				<outline text="OpenVPN" />
+				<outline text="VOIP" />
+				<outline text="Etc" />
+				<outline text="HTTPS" />
+			</outline>
+			<outline text="TLSv1.0">
+				<outline text="Most website still support it" />
+				<outline text="Not as insecure as SSL" />
+				<outline text="Deprecated" />
+			</outline>
+		</outline>
+		<outline text="ETS" _note="aka eTLS&#xA;It&apos;s TLSv1.3 with weakened security" />
+		<outline text="Ciphers" _note="Algorithm to encode or decode data">
+			<outline text="Vulnerable ciphers">
+				<outline text="DES" />
+				<outline text="3DES" />
+				<outline text="NULL" />
+				<outline text="RC2" />
+				<outline text="RC4">
+					<outline text="Bar Mitzvah" />
+					<outline text="NOMORE" />
+				</outline>
+			</outline>
+			<outline text="Cipher Suite">
+				<outline text="MAC" _note="Hash function to ensure message integrity" />
+				<outline text="Determines">
+					<outline text="Performance" />
+					<outline text="Compatability" />
+					<outline text="Security level" />
+				</outline>
+				<outline text="Cipher" _note="Symmetric encryption algorithm" />
+				<outline text="Authentication" />
+				<outline text="Key exchange" _note="Asymmetric algorithm to exchange secret key" />
+			</outline>
+		</outline>
+		<outline text="Vulnerabilities">
+			<outline text="CRIME" />
+			<outline text="BREACH" />
+			<outline text="FREAK" />
+			<outline text="Logjam" />
+			<outline text="NOMORE" />
+			<outline text="Bar Mitzvah" />
+			<outline text="SWEET32">
+				<outline text="3DES" />
+				<outline text="DES" />
+			</outline>
+			<outline text="POODLE">
+				<outline text="TLS POODLE" />
+				<outline text="SSL POODLE" />
+			</outline>
+			<outline text="Heartbleed" />
+			<outline text="Lucky13" />
+			<outline text="SHA1" _note="SHA1 signed certificates are no longer trusted" />
+			<outline text="BEAST" />
+			<outline text="DROWN" _note="CVE-2016-0800" />
+			<outline text="Ciphers">
+				<outline text="NULL" />
+				<outline text="3DES" />
+				<outline text="DES" />
+				<outline text="RC4" />
+				<outline text="RC2" />
+			</outline>
+		</outline>
+		<outline text="SSL">
+			<outline text="SSLv3" />
+			<outline text="SSLv2">
+				<outline text="DROWN" _note="CVE-2016-0800" />
+			</outline>
+			<outline text="Secure Socket Layer" />
+			<outline text="Deprecated / Insecure" />
+		</outline>
+	</outline>
+</body></opml>
